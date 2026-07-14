@@ -1,5 +1,9 @@
-package com.example.pos.venta.Dominio;
+package com.example.pos.venta.dominio;
 
-public interface IRepoVenta {
-    public void crear();
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IRepoVenta extends JpaRepository<Venta, Long>{
+    
 }
