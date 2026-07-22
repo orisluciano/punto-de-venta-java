@@ -46,7 +46,7 @@ public class VentaServicio implements IVentaServicio{
         List<VentaDto> lista = new ArrayList<VentaDto>();
         List<Venta> ventas = this.repoVenta.findAll();
         for (Venta venta : ventas) {
-            lista.add(new VentaDto(venta.getId(), venta.getEstado(), venta.getMontoFinal()));
+            lista.add(new VentaDto(venta.getId(), venta.getEstado(), venta.getMontoFinal(), venta.getFechaModif()));
         }
         return lista;
     }
