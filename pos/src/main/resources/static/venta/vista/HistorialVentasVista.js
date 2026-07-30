@@ -31,6 +31,7 @@ class HistorialVentasVista extends HTMLElement{
     }
 
     cargarTabla(datos){
+        let esto = this;
         let body = document.getElementById(this.idComponentes.tblBodyVenta);
         body.innerHTML = "";
         datos.forEach(e => {
@@ -48,7 +49,14 @@ class HistorialVentasVista extends HTMLElement{
             let fechaModif = document.createElement("td");
             fechaModif.innerHTML = e.fechaModif;
             row.appendChild(fechaModif);
+            row.onclick = function() {
+                esto.rowClick(e.id);
+            }
         });
+    }
+
+    rowClick(ventaId){
+        alert(ventaId);
     }
 }
 
