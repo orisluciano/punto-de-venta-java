@@ -1,7 +1,8 @@
 class MenuVista extends HTMLElement {
     archivo = "./menu/vista/MenuVista.html";
     idComponentes = {
-        btnVentas : "btnVentas"
+        btnVentas : "btnVentas",
+        btnProds : "btnProds"
     }
     constructor(parameters) {
         super();
@@ -25,12 +26,22 @@ class MenuVista extends HTMLElement {
         btnVentas.onclick = function() {
             esto.btnVentasOnclick();
         };
+        let btnProds = document.getElementById(this.idComponentes.btnProds);
+        btnProds.onclick = function() {
+            esto.btnProdsOnClick();
+        };
     }
     
     btnVentasOnclick(){
         let root = document.getElementById("root");
         root.innerHTML = "";
         root.innerHTML = "<historial-venta></historial-venta>";
+    }
+
+    btnProdsOnClick(){
+        let root = document.getElementById("root");
+        root.innerHTML = "";
+        root.innerHTML = "Proximamente Productos"
     }
 }
 
