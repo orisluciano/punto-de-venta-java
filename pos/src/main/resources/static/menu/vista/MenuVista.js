@@ -1,9 +1,12 @@
+import Raiz from "../../utiles/Raiz.js";
+
 class MenuVista extends HTMLElement {
     archivo = "./menu/vista/MenuVista.html";
     idComponentes = {
         btnVentas : "btnVentas",
         btnProds : "btnProds"
-    }
+    };
+    root = new Raiz();
     constructor(parameters) {
         super();
         this.getArchivo();
@@ -39,9 +42,10 @@ class MenuVista extends HTMLElement {
     }
 
     btnProdsOnClick(){
-        let root = document.getElementById("root");
+        /*let root = document.getElementById("root");
         root.innerHTML = "";
-        root.innerHTML = "Proximamente Productos"
+        root.innerHTML = "Proximamente Productos"*/
+        this.root.cambiarVista("Proximamente Productos");
     }
 }
 
