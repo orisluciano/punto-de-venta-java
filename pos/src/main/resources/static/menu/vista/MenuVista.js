@@ -1,3 +1,5 @@
+import ProductoListaVista from "../../producto/vista/ProductoListaVista.js";
+import ElementosPersonlizados from "../../utiles/ElementosPersonalizados.js";
 import Raiz from "../../utiles/Raiz.js";
 
 class MenuVista extends HTMLElement {
@@ -7,6 +9,7 @@ class MenuVista extends HTMLElement {
         btnProds : "btnProds"
     };
     root = new Raiz();
+    //personalizados = new ElementosPersonlizados();
     constructor(parameters) {
         super();
         this.getArchivo();
@@ -45,7 +48,9 @@ class MenuVista extends HTMLElement {
         /*let root = document.getElementById("root");
         root.innerHTML = "";
         root.innerHTML = "Proximamente Productos"*/
-        this.root.cambiarVista("Proximamente Productos");
+        //this.root.cambiarVista(this.personalizados.productoLista.elemento);
+        let prodVista = new ProductoListaVista();
+        prodVista.cargarVista();
     }
 }
 
