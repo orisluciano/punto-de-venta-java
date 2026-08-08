@@ -1,8 +1,9 @@
 import Raiz from "../../utiles/Raiz.js";
+import ProductoServicio from "../servicio/ProductoServicio.js";
 
 class ProductoListaVista {
     archivo = "./Producto/vista/ProductoListaVista.html";
-    //ventaServicio = new VentaServicio();
+    prodServicio = new ProductoServicio();
     idComponentes = {
         tblBodyProducto : "tblBodyProducto"
     }
@@ -32,15 +33,15 @@ class ProductoListaVista {
         }
     }
 
-    async getVentas() {
-        let ventas = await this.ventaServicio.getventas();
-        console.log(await ventas);
-        this.cargarTabla(ventas.resultado);
+    async getProductos() {
+        let prods = await this.prodServicio.getProductos();;
+        console.log(await prods);
+        this.cargarTabla(prods.resultado);
     }
 
     cargarTabla(datos){
         let esto = this;
-        let body = document.getElementById(this.idComponentes.tblBodyVenta);
+        let body = document.getElementById(this.idComponentes.tblBodyProducto);
         body.innerHTML = "";
         datos.forEach(e => {
             let row = document.createElement("tr");
@@ -49,10 +50,10 @@ class ProductoListaVista {
             id.innerHTML = e.id;
             row.appendChild(id);
             let monto = document.createElement("td");
-            monto.innerHTML = e.montoFinal;
+            monto.innerHTML = e.nombre;
             row.appendChild(monto);
             let estado = document.createElement("td");
-            estado.innerHTML = e.estado;
+            estado.innerHTML = e.tipoCodigo + " - " + e.codigo;
             row.appendChild(estado);
             let fechaModif = document.createElement("td");
             fechaModif.innerHTML = e.fechaModif;
