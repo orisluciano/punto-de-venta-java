@@ -26,5 +26,17 @@ public class ProductoServicio implements IProductoServicio{
         }
         return lista;
     }
+
+    @Override
+    public void crear(ProductoDto dto){
+        Producto entidad = new Producto();
+        entidad.setBorrado(false);
+        entidad.setNombre(dto.getNombre());
+        entidad.setDescripcion(dto.getDescripcion());
+        entidad.setTipoProductoId(dto.getTipoProductoId());
+        entidad.setCodigo(dto.getCodigo());
+        entidad.setTipoCodigo(dto.getTipoCodigo());
+        this.repoProducto.save(entidad);
+    }
     
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +24,15 @@ public class ProductoContoller {
         RespuestaBase<List<ProductoDto>> respuesta = new RespuestaBase<List<ProductoDto>>();
         List<ProductoDto> lista = this.productoServicio.getProductos();
         respuesta.setResultado(lista);
+        return respuesta;
+    }
+
+    @PostMapping
+    public RespuestaBase<String> nuevo(@RequestBody ProductoDto dto){
+        RespuestaBase<String> respuesta = new RespuestaBase<String>();
+        String mensaje = "Producto creado";
+        this.productoServicio.crear(dto);
+        respuesta.setResultado(mensaje);
         return respuesta;
     }
 }
