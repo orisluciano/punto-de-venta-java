@@ -5,7 +5,8 @@ class ProductoListaVista {
     archivo = "./Producto/vista/ProductoListaVista.html";
     prodServicio = new ProductoServicio();
     idComponentes = {
-        tblBodyProducto : "tblBodyProducto"
+        tblBodyProducto : "tblBodyProducto",
+        btnNuevoProd : "btnNuevoProd"
     }
     root = new Raiz();
 
@@ -18,6 +19,7 @@ class ProductoListaVista {
     cargarVista(){
         this.getArchivo();
         this.getProductos();
+        this.cargarFunciones();
     }
 
     async getArchivo(){
@@ -67,6 +69,18 @@ class ProductoListaVista {
 
     rowClick(ventaId){
         alert(ventaId);
+    }
+
+    cargarFunciones(){
+        let esto = this;
+        let btnNuevo = document.getElementById(this.idComponentes.btnNuevoProd);
+        btnNuevo.onclick = function() {
+            esto.btnNuevoProdOnClick();
+        };
+    }
+
+    btnNuevoProdOnClick(){
+        alert("Proximamente");
     }
 }
 
