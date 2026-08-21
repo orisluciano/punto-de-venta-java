@@ -567,3 +567,7 @@ input:focus, select:focus, textarea:focus {
 .btn-primary:active {
     transform: translateY(0);
 }
+
+.widthAuto {
+    width: auto;
+}

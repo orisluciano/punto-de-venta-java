@@ -17,6 +17,7 @@ class ProductoListaVista {
 
     cargarVista(){
         this.getArchivo();
+        this.getProductos();
     }
 
     async getArchivo(){
@@ -49,15 +50,15 @@ class ProductoListaVista {
             let id = document.createElement("td");
             id.innerHTML = e.id;
             row.appendChild(id);
-            let monto = document.createElement("td");
-            monto.innerHTML = e.nombre;
-            row.appendChild(monto);
-            let estado = document.createElement("td");
-            estado.innerHTML = e.tipoCodigo + " - " + e.codigo;
-            row.appendChild(estado);
-            let fechaModif = document.createElement("td");
+            let nombre = document.createElement("td");
+            nombre.innerHTML = e.nombre;
+            row.appendChild(nombre);
+            let codigo = document.createElement("td");
+            codigo.innerHTML = e.tipoCodigo + " - " + e.codigo;
+            row.appendChild(codigo);
+            /*let fechaModif = document.createElement("td");
             fechaModif.innerHTML = e.fechaModif;
-            row.appendChild(fechaModif);
+            row.appendChild(fechaModif);*/
             row.onclick = function() {
                 esto.rowClick(e.id);
             }
