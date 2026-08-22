@@ -1,5 +1,6 @@
 import Raiz from "../../utiles/Raiz.js";
 import ProductoServicio from "../servicio/ProductoServicio.js";
+import ProductoABMVista from "./ProductoABMVista.js";
 
 class ProductoListaVista {
     archivo = "./Producto/vista/ProductoListaVista.html";
@@ -16,8 +17,8 @@ class ProductoListaVista {
         //this.getArchivo();
     }
 
-    cargarVista(){
-        this.getArchivo();
+    async cargarVista(){
+        await this.getArchivo();
         this.getProductos();
         this.cargarFunciones();
     }
@@ -80,7 +81,8 @@ class ProductoListaVista {
     }
 
     btnNuevoProdOnClick(){
-        alert("Proximamente");
+        let abm = new ProductoABMVista();
+        abm.cargarVista();
     }
 }
 
