@@ -7,18 +7,29 @@
     <!-- Custom stylesheet -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- FontAwesome for mockup icons without external dependencies (SVG alternatives included natively) -->
-    <script type="module" src="./index.js"></script>
 </head>
-<body class="theme-minimal">
+<body class="theme-glass">
+
+    <!-- SIDEBAR OVERLAY FOR MOBILE -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     <!-- STYLE SWITCHER HEADER -->
     <header class="style-switcher" id="styleSwitcher">
-        <div class="switcher-logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23"></line>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-            <span>VentaFlow</span>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="switcher-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <span>VentaFlow</span>
+            </div>
         </div>
         <div class="switcher-buttons">
             <button class="switcher-btn active" onclick="setTheme('glass', this)">Glassmorphism</button>
@@ -31,7 +42,16 @@
     <div class="app-container">
         
         <!-- SIDEBAR -->
-        <aside id="menuCostado">
+        <aside>
+            <div class="sidebar-mobile-header">
+                <span>VentaFlow</span>
+                <button class="sidebar-close-btn" onclick="toggleSidebar()" aria-label="Cerrar menú">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
             <div class="nav-group">
                 <span class="nav-label" onclick="toggleNavGroup(this)">
                     General
@@ -80,8 +100,225 @@
         </aside>
 
         <!-- MAIN DASHBOARD CONTENT -->
-        <main id="root">
+        <main>
+            
+            <!-- METRICS ROW -->
+            <section class="metrics-row">
+                <!-- METRIC 1 -->
+                <div class="card metric-card">
+                    <div class="metric-info">
+                        <h3>Ingresos Totales</h3>
+                        <div class="metric-value">$12,450.00</div>
+                        <span class="metric-trend trend-up">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            +12.5% este mes
+                        </span>
+                    </div>
+                    <div class="metric-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                </div>
+
+                <!-- METRIC 2 -->
+                <div class="card metric-card">
+                    <div class="metric-info">
+                        <h3>Transacciones</h3>
+                        <div class="metric-value">348</div>
+                        <span class="metric-trend trend-up">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            +8.2% vs. semana ant.
+                        </span>
+                    </div>
+                    <div class="metric-icon success">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    </div>
+                </div>
+
+                <!-- METRIC 3 -->
+                <div class="card metric-card">
+                    <div class="metric-info">
+                        <h3>Ticket Promedio</h3>
+                        <div class="metric-value">$35.77</div>
+                        <span class="metric-trend trend-down">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                            -1.4% de variación
+                        </span>
+                    </div>
+                    <div class="metric-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHARTS & FORM GRID -->
+            <section class="dashboard-grid">
+                
+                <!-- WEEKLY SALES TREND (CSS CHART) -->
+                <div class="card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Desempeño Semanal (Ventas)</h3>
+                    </div>
+                    <div class="chart-container">
+                        <!-- Bar Mon -->
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="height: 45%;">
+                                <div class="chart-tooltip">$1,200</div>
+                            </div>
+                            <span class="chart-label">Lun</span>
+                        </div>
+                        <!-- Bar Tue -->
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="height: 60%;">
+                                <div class="chart-tooltip">$1,800</div>
+                            </div>
+                            <span class="chart-label">Mar</span>
+                        </div>
+                        <!-- Bar Wed -->
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="height: 85%;">
+                                <div class="chart-tooltip">$2,500</div>
+                            </div>
+                            <span class="chart-label">Mié</span>
+                        </div>
+                        <!-- Bar Thu -->
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="height: 70%;">
+                                <div class="chart-tooltip">$2,100</div>
+                            </div>
+                            <span class="chart-label">Jue</span>
+                        </div>
+                        <!-- Bar Fri -->
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="height: 95%;">
+                                <div class="chart-tooltip">$2,900</div>
+                            </div>
+                            <span class="chart-label">Vie</span>
+                        </div>
+                        <!-- Bar Sat -->
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="height: 40%;">
+                                <div class="chart-tooltip">$1,100</div>
+                            </div>
+                            <span class="chart-label">Sáb</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW SALE QUICK REGISTRATION -->
+                <div class="card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Registrar Venta</h3>
+                    </div>
+                    <form onsubmit="event.preventDefault(); alert('Simulación: Venta registrada exitosamente.');">
+                        <div class="form-group">
+                            <label for="client">Cliente</label>
+                            <input type="text" id="client" placeholder="Ej. Juan Pérez" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Producto</label>
+                            <select id="product">
+                                <option value="1">Licencia de Software SaaS</option>
+                                <option value="2">Suscripción Premium Mensual</option>
+                                <option value="3">Consultoría Tecnológica (Hora)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Monto ($ USD)</label>
+                            <input type="number" id="amount" placeholder="Ej. 150" min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Confirmar Venta
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- RECENT TRANSACTIONS TABLE -->
+            <section class="card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Transacciones Recientes</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Referencia</th>
+                                <th>Cliente</th>
+                                <th>Producto/Servicio</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="openTransactionModal(this)">
+                                <td>#TX-8902</td>
+                                <td>Sofía Alarcón</td>
+                                <td>Licencia de Software SaaS</td>
+                                <td>$299.00</td>
+                                <td><span class="status-badge completed">Completado</span></td>
+                            </tr>
+                            <tr onclick="openTransactionModal(this)">
+                                <td>#TX-8901</td>
+                                <td>Mateo Díaz</td>
+                                <td>Suscripción Premium Mensual</td>
+                                <td>$49.00</td>
+                                <td><span class="status-badge completed">Completado</span></td>
+                            </tr>
+                            <tr onclick="openTransactionModal(this)">
+                                <td>#TX-8900</td>
+                                <td>Elena Gutiérrez</td>
+                                <td>Consultoría Tecnológica (Hora)</td>
+                                <td>$120.00</td>
+                                <td><span class="status-badge pending">Pendiente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
         </main>
+    </div>
+
+    <!-- TRANSACTION DETAILS MODAL -->
+    <div id="transactionModal" class="modal-overlay" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-card card">
+            <div class="modal-header">
+                <h3 class="chart-title">Detalle de Transacción</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-row">
+                    <span class="detail-label">Referencia</span>
+                    <span class="detail-value" id="modalRef">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Cliente</span>
+                    <span class="detail-value" id="modalClient">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Producto / Servicio</span>
+                    <span class="detail-value" id="modalProduct">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Monto Total</span>
+                    <span class="detail-value" id="modalTotal" style="color: var(--color-primary); font-weight: 700;">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Estado</span>
+                    <span id="modalStatus">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Fecha y Hora</span>
+                    <span class="detail-value">28 de Julio, 2026 - 10:00 AM</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- SCRIPT FOR INTERACTIVE DASHBOARD -->
@@ -90,6 +327,7 @@
             // Get current collapsed state of nav groups to preserve it
             const groups = document.querySelectorAll('.nav-group');
             const states = Array.from(groups).map(g => g.classList.contains('collapsed'));
+            const isSidebarOpen = document.body.classList.contains('sidebar-open');
 
             // Remove previous theme classes
             document.body.className = '';
@@ -97,10 +335,13 @@
             // Add selected theme class
             document.body.classList.add('theme-' + themeName);
             
-            // Reapply collapsed state
+            // Reapply collapsed and sidebar states
             groups.forEach((g, i) => {
                 if (states[i]) g.classList.add('collapsed');
             });
+            if (isSidebarOpen) {
+                document.body.classList.add('sidebar-open');
+            }
 
             // Handle active button state
             const buttons = document.querySelectorAll('.switcher-btn');
@@ -108,9 +349,42 @@
             element.classList.add('active');
         }
 
+        function toggleSidebar() {
+            document.body.classList.toggle('sidebar-open');
+        }
+
         function toggleNavGroup(labelElement) {
             const navGroup = labelElement.closest('.nav-group');
             navGroup.classList.toggle('collapsed');
+        }
+
+        // Modal Functions
+        function openTransactionModal(row) {
+            const cells = row.getElementsByTagName('td');
+            
+            const ref = cells[0].innerText;
+            const client = cells[1].innerText;
+            const product = cells[2].innerText;
+            const total = cells[3].innerText;
+            const statusHtml = cells[4].innerHTML;
+
+            document.getElementById('modalRef').innerText = ref;
+            document.getElementById('modalClient').innerText = client;
+            document.getElementById('modalProduct').innerText = product;
+            document.getElementById('modalTotal').innerText = total;
+            document.getElementById('modalStatus').innerHTML = statusHtml;
+
+            document.getElementById('transactionModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('transactionModal').classList.remove('show');
+        }
+
+        function closeModalOnOutsideClick(event) {
+            if (event.target.id === 'transactionModal') {
+                closeModal();
+            }
         }
     </script>
 </body>
