@@ -7,6 +7,7 @@
     <!-- Custom stylesheet -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- FontAwesome for mockup icons without external dependencies (SVG alternatives included natively) -->
+     <script type="module" src="./index.js"></script>
 </head>
 <body class="theme-glass">
 
@@ -42,7 +43,7 @@
     <div class="app-container">
         
         <!-- SIDEBAR -->
-        <aside>
+        <aside id="menuCostado">
             <div class="sidebar-mobile-header">
                 <span>VentaFlow</span>
                 <button class="sidebar-close-btn" onclick="toggleSidebar()" aria-label="Cerrar menú">
@@ -100,7 +101,7 @@
         </aside>
 
         <!-- MAIN DASHBOARD CONTENT -->
-        <main>
+        <main id="root">
             
             <!-- METRICS ROW -->
             <section class="metrics-row">
