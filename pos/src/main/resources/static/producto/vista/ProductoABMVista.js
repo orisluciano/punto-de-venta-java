@@ -5,11 +5,11 @@ class ProductoABMVista extends VistaBase {
     root = new Raiz();
     constructor(parameters) {
         super();
-        this.archivo = "./Producto/vista/ProductoABMVista.html";
+        this.archivo = "./Producto/vista/ProductoABM.html";
     }
 
-    cargarVista(){
-        this.root.cambiarVista(this.getArchivo());
+    async cargarVista(){
+        this.root.cambiarVista(await this.getArchivo());
     }
 }
 export default ProductoABMVista;
