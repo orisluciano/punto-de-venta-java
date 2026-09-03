@@ -29,9 +29,7 @@ class VistaBase {
     cargarFunciones(lista){
         lista.forEach(e => {
             let elemento = document.getElementById(e.id);
-            elemento.onclick = function() {
-                e.funcion;
-            }
+            elemento.addEventListener("click", e.funcion);
         });
     }
 }

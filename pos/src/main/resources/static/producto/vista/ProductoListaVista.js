@@ -1,6 +1,7 @@
 import Raiz from "../../utiles/Raiz.js";
 import ProductoServicio from "../servicio/ProductoServicio.js";
 import ProductoABMVista from "./ProductoABMVista.js";
+import ProductoDetalleVista from "./ProductoDetalleVista.js";
 
 class ProductoListaVista {
     archivo = "./Producto/vista/ProductoListaVista.html";
@@ -63,13 +64,14 @@ class ProductoListaVista {
             fechaModif.innerHTML = e.fechaModif;
             row.appendChild(fechaModif);*/
             row.onclick = function() {
-                esto.rowClick(e.id);
+                esto.rowClick(e);
             }
         });
     }
 
-    rowClick(ventaId){
-        alert(ventaId);
+    rowClick(producto){
+        let detalle = new ProductoDetalleVista();
+        detalle.cargarVista();
     }
 
     cargarFunciones(){

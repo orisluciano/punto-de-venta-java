@@ -16,24 +16,24 @@
                             <input type="text" id="prodCod" placeholder="Ej. 12345678" required="">
                         </div>
                         <div class="form-group">
-                            <label for="prodTipoCod">Tipo de codigo</label>
-                            <input type="text" id="prodTipoCod" placeholder="Ej. Ean-13" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="product">Producto</label>
-                            <select id="product">
+                            <label for="product">Tipo de codigo</label>
+                            <select id="prodTipoCod">
                                 <option value="1">Licencia de Software SaaS</option>
                                 <option value="2">Suscripción Premium Mensual</option>
                                 <option value="3">Consultoría Tecnológica (Hora)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="amount">Monto ($ USD)</label>
-                            <input type="number" id="amount" placeholder="Ej. 150" min="1" required="">
+                            <label for="product">Tipo de Producto</label>
+                            <select id="prodTipoProd">
+                                <option value="1">Licencia de Software SaaS</option>
+                                <option value="2">Suscripción Premium Mensual</option>
+                                <option value="3">Consultoría Tecnológica (Hora)</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" id="btnProdOp" class="btn btn-primary">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                            Confirmar Venta
+                            Operacion
                         </button>
                     </form>
                 </div>
