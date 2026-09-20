@@ -1,5 +1,6 @@
 import Raiz from "../../utiles/Raiz.js";
 import VistaBase from "../../utiles/VistaBase.js";
+import ProductoABMVista from "./ProductoABMVista.js";
 
 class ProductoDetalleVista extends VistaBase{
     root = new Raiz();
@@ -20,7 +21,7 @@ class ProductoDetalleVista extends VistaBase{
 
     btnProdABMOnclick(){
         this.btnActive(this.lista[0].id);
-        alert("abm");
+        this.irProdAbm();
     }
 
     btnProdPrecioOnclick(){
@@ -42,6 +43,11 @@ class ProductoDetalleVista extends VistaBase{
         botones.forEach(e => e.classList.remove("active"));
         let btnAct = document.getElementById(id);
         btnAct.classList.add("active");
+    }
+
+    irProdAbm(){
+        let abm = new ProductoABMVista();
+        abm.cargarVista();
     }
 }
 
