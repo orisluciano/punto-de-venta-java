@@ -19,14 +19,21 @@ class ProductoABMVista extends VistaBase {
     
     verificarOperacion(){
         if (this.operacion !== "crear") {
-            this.cargarDatos();
+            this.cargarDatos(this.cargarListaDatos());
         } else {
             
         }
     }
 
-    cargarDatos(){
-        
+    cargarListaDatos(){
+        let lista = [
+            { id : "prodNombre", dato : this.datos.descripcion },
+            { id : "prodDesc", dato : this.datos.descripcion },
+            { id : "prodCod", dato : this.datos.codigo },
+            { id : "prodTipoCod", dato : this.datos.tipoCodigo },
+            { id : "btnProdOp", dato : this.dato.tipoProducto }
+        ];
+        return lista;
     }
 }
 export default ProductoABMVista;
