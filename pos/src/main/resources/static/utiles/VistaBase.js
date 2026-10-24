@@ -32,5 +32,13 @@ class VistaBase {
             elemento.addEventListener("click", e.funcion);
         });
     }
+
+    cargarDatos(lista){
+        lista.forEach(e => {
+            let elemento = document.getElementById(e.id);
+            elemento.innerHTML = e.dato;
+            elemento.value = e.dato;
+        });
+    }
 }
 export default VistaBase;
