@@ -9,9 +9,12 @@ class ProductoDetalleVista extends VistaBase{
         { id : "btnProdPrecio", funcion : () => this.btnProdPrecioOnclick()},
         { id : "btnProdStock", funcion : () => this.btnProdStockOnclick()}
     ];
-    constructor(parameters) {
+    producto = null;
+
+    constructor(producto) {
         super();
         this.archivo = "./Producto/vista/ProductoDetalle.html";
+        this.producto = producto;
     }
 
     async cargarVista(){
@@ -46,7 +49,7 @@ class ProductoDetalleVista extends VistaBase{
     }
 
     irProdAbm(){
-        let abm = new ProductoABMVista();
+        let abm = new ProductoABMVista(this.producto, "Ver");
         abm.cargarVista();
     }
 }

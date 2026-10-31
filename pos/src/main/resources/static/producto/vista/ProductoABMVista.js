@@ -15,6 +15,7 @@ class ProductoABMVista extends VistaBase {
 
     async cargarVista(){
         this.root.cambiarVista(await this.getArchivo());
+        this.verificarOperacion();
     }
     
     verificarOperacion(){

@@ -70,7 +70,7 @@ class ProductoListaVista {
     }
 
     rowClick(producto){
-        let detalle = new ProductoDetalleVista();
+        let detalle = new ProductoDetalleVista(producto);
         detalle.cargarVista();
     }
 
